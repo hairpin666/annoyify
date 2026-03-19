@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Primary SEO -->
+  <title>Annoyify — Break Bad Habits with Annoying Push Notifications</title>
+  <meta name="description" content="Annoyify sends relentless, humorous push notifications timed to your highest-risk moments. Quit smoking, cut screen time, eat better — one buzz at a time. Now on Android.">
+  <meta name="keywords" content="habit breaking app, quit smoking app, reduce screen time, bad habit tracker, push notification reminders, stop doomscrolling, habit change app">
+  <link rel="canonical" href="https://annoyify.com/">
+  <link rel="sitemap" type="application/xml" href="/sitemap.xml">
+  <meta name="theme-color" content="#1A0A2E">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://annoyify.com/">
+  <meta property="og:title" content="Annoyify — Break Bad Habits with Annoying Push Notifications">
+  <meta property="og:description" content="Your habits won't stand a chance. Annoyify sends relentless, humorous push notifications timed to your highest-risk moments. Download now on Android.">
+  <meta property="og:image" content="https://annoyify.com/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="Annoyify">
+  <meta property="og:locale" content="en_US">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Annoyify — Break Bad Habits with Annoying Push Notifications">
+  <meta name="twitter:description" content="Your habits won't stand a chance. Annoyify sends relentless, humorous push notifications timed to your highest-risk moments.">
+  <meta name="twitter:image" content="https://annoyify.com/images/og-image.png">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/images/app-icon.png">
+  <link rel="apple-touch-icon" href="/images/app-icon.png">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Annoyify",
+    "description": "Annoyify helps you break bad habits through relentless, humorous push notifications timed to your highest-risk moments. Track resistance streaks, log check-ins, and build better habits one buzz at a time.",
+    "url": "https://annoyify.com",
+    "applicationCategory": "HealthApplication",
+    "applicationSubCategory": "Lifestyle",
+    "operatingSystem": "Android, iOS",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "sameAs": ["https://play.google.com/store/apps/details?id=com.heifi.annoyify"],
+    "publisher": {
+      "@type": "Organization",
+      "name": "Annoyify",
+      "url": "https://annoyify.com"
+    },
+    "featureList": [
+      "Personalized push notifications timed to high-risk habit moments",
+      "Habit categories: smoking, doomscrolling, overeating, alcohol",
+      "Adjustable annoyance level from gentle to relentless",
+      "Quiet hours and timezone-aware scheduling",
+      "Resistance streaks and gamification check-ins",
+      "Motivational articles and habit-breaking resources"
+    ],
+    "screenshot": [
+      "https://annoyify.com/images/screen-welcome.png",
+      "https://annoyify.com/images/screen-dashboard.png",
+      "https://annoyify.com/images/screen-checkin.png"
+    ]
+  }
+  </script>
+
+  <style>
+    /* =====================================================
+       DESIGN TOKENS
+    ===================================================== */
+    :root {
+      --bg:           #1A0A2E;
+      --bg-dark:      #0D0518;
+      --bg-section:   #120824;
+      --primary:      #FF3CAC;
+      --primary-glow: rgba(255, 60, 172, 0.3);
+      --accent:       #FF6B35;
+      --neon-cyan:    #00D4FF;
+      --text:         #FFFFFF;
+      --text-muted:   rgba(255, 255, 255, 0.6);
+      --text-subtle:  rgba(255, 255, 255, 0.35);
+      --card-bg:      rgba(255, 255, 255, 0.05);
+      --card-border:  rgba(255, 60, 172, 0.2);
+      --card-hover:   rgba(255, 60, 172, 0.4);
+      --nav-bg:       rgba(13, 5, 24, 0.85);
+      --max-w:        1100px;
+      --radius:       12px;
+      --radius-lg:    20px;
+      --radius-xl:    32px;
+      --font:         -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    /* =====================================================
+       RESET + BASE
+    ===================================================== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(120, 40, 200, 0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(255, 60, 172, 0.08) 0%, transparent 50%);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    ul, ol { list-style: none; }
+
+    /* =====================================================
+       UTILITIES
+    ===================================================== */
+    .visually-hidden {
+      position: absolute;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .gradient-text {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--primary) 50%, #c850c0 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .container {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+    }
+
+    /* =====================================================
+       HEADER / NAV
+    ===================================================== */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 60, 172, 0.12);
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius);
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: var(--text) !important;
+      font-weight: 600;
+      padding: 0.5rem 1rem !important;
+      box-shadow: 0 2px 12px var(--primary-glow);
+      transition: opacity 0.15s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover {
+      background: linear-gradient(135deg, var(--accent), var(--primary)) !important;
+      opacity: 0.9;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    /* =====================================================
+       BADGE / PILL
+    ===================================================== */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      background: rgba(255, 60, 172, 0.12);
+      border: 1px solid rgba(255, 60, 172, 0.35);
+      color: var(--primary);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--primary);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.5; transform: scale(0.75); }
+    }
+
+    /* =====================================================
+       STORE BUTTONS
+    ===================================================== */
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.875rem;
+    }
+
+    .btn-store {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.625rem;
+      padding: 0.75rem 1.375rem;
+      border-radius: var(--radius-lg);
+      font-weight: 600;
+      font-size: 0.9rem;
+      line-height: 1.2;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      text-decoration: none;
+    }
+
+    .btn-store:hover { text-decoration: none; }
+
+    .btn-store svg { flex-shrink: 0; }
+
+    .btn-store span { display: flex; flex-direction: column; }
+
+    .btn-store small {
+      font-size: 0.68rem;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+
+    .btn-android {
+      background: linear-gradient(135deg, #34a853 0%, #0f9d58 100%);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(52, 168, 83, 0.35);
+    }
+
+    .btn-android:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(52, 168, 83, 0.5);
+      color: #fff;
+    }
+
+    .btn-ios {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: var(--text-muted);
+      cursor: not-allowed;
+      pointer-events: none;
+      filter: grayscale(0.3);
+      opacity: 0.6;
+    }
+
+    /* =====================================================
+       PHONE FRAME
+    ===================================================== */
+    .phone-frame {
+      position: relative;
+      border-radius: 40px;
+      border: 1.5px solid rgba(255, 60, 172, 0.3);
+      box-shadow:
+        0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+        0 0 40px rgba(255, 60, 172, 0.2),
+        0 0 80px rgba(255, 60, 172, 0.08),
+        0 24px 60px rgba(0, 0, 0, 0.5);
+      overflow: hidden;
+      background: var(--bg-dark);
+    }
+
+    .phone-frame img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* =====================================================
+       HERO
+    ===================================================== */
+    #hero {
+      padding: 5rem 1.25rem 4rem;
+    }
+
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.2rem, 6vw, 3.75rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+    }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 520px;
+      margin-bottom: 2.25rem;
+    }
+
+    .hero-mockup {
+      display: flex;
+      justify-content: center;
+    }
+
+    .hero-phone-wrap {
+      position: relative;
+      width: min(280px, 70vw);
+    }
+
+    .hero-phone-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -30px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255, 60, 172, 0.25) 0%, transparent 70%);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    /* =====================================================
+       HOW IT WORKS
+    ===================================================== */
+    #how-it-works {
+      padding: 5rem 1.25rem;
+      background: var(--bg-section);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+    }
+
+    .steps {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      counter-reset: steps;
+    }
+
+    .step {
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .step-num {
+      font-size: 2.5rem;
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      flex-shrink: 0;
+      width: 2.5rem;
+      text-align: right;
+    }
+
+    .step-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .step-body p {
+      color: var(--text-muted);
+      line-height: 1.65;
+      font-size: 0.95rem;
+    }
+
+    /* =====================================================
+       FEATURES
+    ===================================================== */
+    #features {
+      padding: 5rem 1.25rem;
+    }
+
+    .features-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .feature-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+    }
+
+    .feature-card:hover {
+      border-color: var(--card-hover);
+      box-shadow: 0 0 30px rgba(255, 60, 172, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .feature-icon {
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      line-height: 1;
+    }
+
+    .feature-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      line-height: 1.65;
+    }
+
+    /* =====================================================
+       SCREENSHOTS
+    ===================================================== */
+    #screenshots {
+      padding: 4rem 0;
+      background: var(--bg-section);
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+      overflow: hidden;
+    }
+
+    .screenshots-strip {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      align-items: flex-end;
+      padding: 1.5rem 2rem 2rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+    }
+
+    .screenshots-strip::-webkit-scrollbar { display: none; }
+
+    .screenshots-strip .phone-frame {
+      flex-shrink: 0;
+      width: 200px;
+      scroll-snap-align: center;
+      opacity: 0.75;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .screenshots-strip .phone-frame:hover { opacity: 1; }
+
+    .screenshots-strip .phone-frame--center {
+      width: 230px;
+      opacity: 1;
+      transform: translateY(-12px);
+      z-index: 1;
+    }
+
+    /* =====================================================
+       DOWNLOAD CTA
+    ===================================================== */
+    #download {
+      padding: 6rem 1.25rem;
+      text-align: center;
+    }
+
+    .download-inner {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    #download h2 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    #download p {
+      color: var(--text-muted);
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2.25rem;
+    }
+
+    #download .btn-group {
+      justify-content: center;
+    }
+
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 2.5rem 1.25rem;
+      background: var(--bg-dark);
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .footer-brand img {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .footer-copy {
+      color: var(--text-subtle);
+      font-size: 0.8rem;
+    }
+
+    /* =====================================================
+       RESPONSIVE — desktop layout
+    ===================================================== */
+    @media (min-width: 768px) {
+      .hero-inner {
+        grid-template-columns: 1fr 1fr;
+        gap: 4rem;
+        padding: 0;
+      }
+
+      .hero-mockup { justify-content: flex-end; }
+
+      .hero-phone-wrap { width: 300px; }
+
+      .steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem 3rem;
+      }
+
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+
+      .footer-links { justify-content: flex-start; }
+    }
+
+    @media (min-width: 1024px) {
+      .steps { grid-template-columns: repeat(4, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HEADER ========== -->
+  <header role="banner">
+    <nav aria-label="Primary navigation">
+      <a href="/" class="nav-logo" aria-label="Annoyify home">
+        <img src="/images/app-icon.png" alt="" width="32" height="32" aria-hidden="true">
+        Annoyify
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li>
+          <a href="https://play.google.com/store/apps/details?id=com.heifi.annoyify"
+             class="nav-link nav-cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Get Annoyify on Google Play">
+            Get the App
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- ========== HERO ========== -->
+  <section id="hero" aria-labelledby="hero-heading">
+    <div class="hero-inner">
+
+      <div class="hero-content">
+        <div class="badge" aria-label="Now live on Android">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Now on Android
+        </div>
+
+        <h1 id="hero-heading">
+          Your habits won't<br>
+          <span class="gradient-text">stand a chance.</span>
+        </h1>
+
+        <p class="hero-sub">
+          Annoyify sends relentless, humorous push notifications timed to your
+          highest-risk moments — nagging you into better habits one buzz at a time.
+          Smoking, doomscrolling, overeating — pick your poison.
+        </p>
+
+        <div class="btn-group" role="group" aria-label="App store downloads">
+          <!-- Android: LIVE -->
+          <a href="https://play.google.com/store/apps/details?id=com.heifi.annoyify"
+             class="btn-store btn-android"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Get Annoyify on Google Play">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M3.18 23.76c.37.21.8.22 1.18.02l11.62-6.57-2.5-2.5-10.3 9.05zm-.68-19.9c-.1.27-.17.57-.17.89v18.5c0 .32.06.62.17.89l10.48-10.48L2.5 3.86zM20.3 10.04l-2.3-1.3-2.8 2.8 2.8 2.8 2.32-1.31a1.75 1.75 0 0 0 0-3.0zm-17.12-6.8l10.3 9.06 2.5-2.5L4.36.52c-.38-.21-.81-.2-1.18.02z"/>
+            </svg>
+            <span>
+              <small>Get it on</small>
+              Google Play
+            </span>
+          </a>
+
+          <!-- iOS: COMING SOON -->
+          <span class="btn-store btn-ios"
+                role="img"
+                aria-label="App Store — coming soon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.14-2.14 1.25-2.12 3.73.02 2.97 2.6 3.96 2.63 3.97-.03.07-.41 1.4-1.36 2.87M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+            </svg>
+            <span>
+              <small>Coming soon on</small>
+              App Store
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <div class="hero-mockup" aria-hidden="true">
+        <div class="hero-phone-wrap">
+          <div class="phone-frame">
+            <img src="/images/screen-welcome.png"
+                 alt="Annoyify welcome screen"
+                 width="300" height="600"
+                 loading="eager">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========== HOW IT WORKS ========== -->
+  <section id="how-it-works" aria-labelledby="how-heading">
+    <div class="section-header">
+      <p class="section-label">The process</p>
+      <h2 id="how-heading">Four steps to quitting your bad habits</h2>
+    </div>
+
+    <ol class="steps" role="list">
+      <li class="step">
+        <div class="step-num" aria-hidden="true">01</div>
+        <div class="step-body">
+          <h3>Pick Your Habit</h3>
+          <p>Choose from smoking, doomscrolling, overeating, drinking, or add your own. Stack as many as you're brave enough to tackle.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">02</div>
+        <div class="step-body">
+          <h3>Set Your Annoyance Level</h3>
+          <p>From gentle morning reminder to full relentless mode — you control how aggressively Annoyify bugs you. Set quiet hours and sleep in peace.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">03</div>
+        <div class="step-body">
+          <h3>Get Annoyed Into Action</h3>
+          <p>Receive perfectly timed, humorous push notifications at your highest-risk moments. Tap through to motivational articles and streak tracking.</p>
+        </div>
+      </li>
+      <li class="step">
+        <div class="step-num" aria-hidden="true">04</div>
+        <div class="step-body">
+          <h3>Track Your Streaks</h3>
+          <p>Log whether you resisted or slipped. Build streaks, earn check-ins, and watch your stats improve week over week.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section id="features" aria-labelledby="features-heading">
+    <div class="section-header container">
+      <p class="section-label">What you get</p>
+      <h2 id="features-heading">Everything you need to actually quit</h2>
+    </div>
+
+    <div class="features-grid">
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🔔</div>
+        <h3>Relentless Notifications</h3>
+        <p>Context-aware push notifications fired at the exact moments your cravings peak — not random spam, strategic annoyance designed to break your patterns.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🎯</div>
+        <h3>Habit Categories</h3>
+        <p>Smoking, doomscrolling, overeating, alcohol — curated habit tracks with notification content and articles tailored to each one.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🔥</div>
+        <h3>Resistance Streaks</h3>
+        <p>Every time you resist, you build a streak. Slipped? Log it honestly and get straight back on track — no judgment, just accountability.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">⚙️</div>
+        <h3>Annoyance Level Control</h3>
+        <p>Dial it from a gentle nudge to all-out relentless mode. You're in charge — the habit is not.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">🌙</div>
+        <h3>Quiet Hours</h3>
+        <p>Timezone-aware scheduling with customizable quiet hours. Annoyify knows when to back off so you can sleep, commute, or focus.</p>
+      </article>
+
+      <article class="feature-card">
+        <div class="feature-icon" aria-hidden="true">📖</div>
+        <h3>Motivational Articles</h3>
+        <p>Every notification links to habit-specific content — science-backed reasons to quit, funny motivational pieces, and practical tips that actually help.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== SCREENSHOTS ========== -->
+  <section id="screenshots" aria-labelledby="screenshots-label">
+    <h2 id="screenshots-label" class="visually-hidden">App Screenshots</h2>
+    <div class="screenshots-strip" role="list" aria-label="App screenshots">
+      <div class="phone-frame" role="listitem">
+        <img src="/images/screen-dashboard.png"
+             alt="Annoyify dashboard showing active habits and streak stats"
+             width="250" height="500"
+             loading="lazy">
+      </div>
+      <div class="phone-frame phone-frame--center" role="listitem">
+        <img src="/images/screen-checkin.png"
+             alt="Check-in screen asking if you resisted or slipped"
+             width="250" height="500"
+             loading="lazy">
+      </div>
+      <div class="phone-frame" role="listitem">
+        <img src="/images/screen-choose-habit.png"
+             alt="Habit selection screen showing smoking, doomscrolling, overeating options"
+             width="250" height="500"
+             loading="lazy">
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOWNLOAD CTA ========== -->
+  <section id="download" aria-labelledby="download-heading">
+    <div class="download-inner">
+      <h2 id="download-heading">
+        Ready to be annoyed into<br>
+        <span class="gradient-text">a better you?</span>
+      </h2>
+      <p>Download Annoyify on Android now — iOS coming soon.</p>
+
+      <div class="btn-group" role="group" aria-label="App store downloads">
+        <a href="https://play.google.com/store/apps/details?id=com.heifi.annoyify"
+           class="btn-store btn-android"
+           target="_blank"
+           rel="noopener noreferrer"
+           aria-label="Get Annoyify on Google Play">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M3.18 23.76c.37.21.8.22 1.18.02l11.62-6.57-2.5-2.5-10.3 9.05zm-.68-19.9c-.1.27-.17.57-.17.89v18.5c0 .32.06.62.17.89l10.48-10.48L2.5 3.86zM20.3 10.04l-2.3-1.3-2.8 2.8 2.8 2.8 2.32-1.31a1.75 1.75 0 0 0 0-3.0zm-17.12-6.8l10.3 9.06 2.5-2.5L4.36.52c-.38-.21-.81-.2-1.18.02z"/>
+          </svg>
+          <span>
+            <small>Get it on</small>
+            Google Play
+          </span>
+        </a>
+
+        <span class="btn-store btn-ios"
+              role="img"
+              aria-label="App Store — coming soon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98l-.09.06c-.22.14-2.14 1.25-2.12 3.73.02 2.97 2.6 3.96 2.63 3.97-.03.07-.41 1.4-1.36 2.87M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+          </svg>
+          <span>
+            <small>Coming soon on</small>
+            App Store
+          </span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/images/app-icon.png" alt="" width="24" height="24" aria-hidden="true">
+        Annoyify
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/legal/privacy-policy.html">Privacy Policy</a>
+        <a href="/legal/terms-of-service.html">Terms of Service</a>
+        <a href="mailto:info@annoyify.com">Contact</a>
+      </nav>
+      <p class="footer-copy">
+        <small>&copy; 2026 Annoyify. All rights reserved.</small>
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
