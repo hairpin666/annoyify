@@ -1,70 +1,348 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Terms of Service - Annoyify</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            color: #333;
-            background: #fff;
-        }
-        h1 { color: #1A0A2E; }
-        h2 { color: #2d1b4e; margin-top: 2em; }
-        a { color: #FF3CAC; }
-        .last-updated { color: #666; font-style: italic; }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms of Service — Annoyify</title>
+  <meta name="description" content="Annoyify Terms of Service — the rules governing your use of the app.">
+  <link rel="canonical" href="https://annoyify.com/legal/terms-of-service.html">
+  <meta name="theme-color" content="#1A0A2E">
+  <link rel="icon" type="image/png" href="/images/app-icon.png">
+  <link rel="apple-touch-icon" href="/images/app-icon.png">
+
+  <style>
+    :root {
+      --bg:           #1A0A2E;
+      --bg-dark:      #0D0518;
+      --primary:      #FF3CAC;
+      --primary-glow: rgba(255, 60, 172, 0.3);
+      --accent:       #FF6B35;
+      --text:         #FFFFFF;
+      --text-muted:   rgba(255, 255, 255, 0.6);
+      --text-subtle:  rgba(255, 255, 255, 0.35);
+      --nav-bg:       rgba(13, 5, 24, 0.85);
+      --max-w:        1100px;
+      --radius:       12px;
+      --font:         -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+    body {
+      font-family: var(--font);
+      background-color: var(--bg);
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(120, 40, 200, 0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 60%, rgba(255, 60, 172, 0.08) 0%, transparent 50%);
+      color: var(--text);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--primary); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    ul, ol { list-style: none; }
+
+    /* ── NAV ── */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 60, 172, 0.12);
+    }
+
+    nav {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 1.25rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--text);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+
+    .nav-logo img {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+    }
+
+    .nav-link {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      padding: 0.5rem 0.75rem;
+      border-radius: var(--radius);
+      transition: color 0.15s, background 0.15s;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.06);
+      text-decoration: none;
+    }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      color: var(--text) !important;
+      font-weight: 600;
+      padding: 0.5rem 1rem !important;
+      box-shadow: 0 2px 12px var(--primary-glow);
+      transition: opacity 0.15s, transform 0.15s !important;
+    }
+
+    .nav-cta:hover {
+      background: linear-gradient(135deg, var(--accent), var(--primary)) !important;
+      opacity: 0.9;
+      transform: translateY(-1px);
+      text-decoration: none;
+    }
+
+    /* ── CONTENT ── */
+    .legal-wrap {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 3.5rem 1.25rem 5rem;
+    }
+
+    .legal-eyebrow {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--primary);
+      margin-bottom: 0.75rem;
+    }
+
+    .legal-wrap h1 {
+      font-size: clamp(1.75rem, 4vw, 2.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 0.5rem;
+    }
+
+    .last-updated {
+      color: var(--text-subtle);
+      font-size: 0.875rem;
+      margin-bottom: 3rem;
+      display: block;
+    }
+
+    .legal-wrap h2 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px solid rgba(255, 60, 172, 0.15);
+    }
+
+    .legal-wrap p {
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      font-size: 0.975rem;
+    }
+
+    .legal-wrap ul {
+      list-style: disc;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .legal-wrap ul li {
+      color: var(--text-muted);
+      line-height: 1.75;
+      font-size: 0.975rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .legal-wrap a {
+      color: var(--primary);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.07);
+      padding: 2.5rem 1.25rem;
+      background: var(--bg-dark);
+    }
+
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.25rem;
+      text-align: center;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .footer-brand img {
+      width: 24px;
+      height: 24px;
+      border-radius: 6px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem 1.25rem;
+      justify-content: center;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+      transition: color 0.15s;
+      text-decoration: none;
+    }
+
+    .footer-links a:hover { color: var(--text); text-decoration: none; }
+
+    .footer-copy {
+      color: var(--text-subtle);
+      font-size: 0.8rem;
+    }
+
+    @media (min-width: 768px) {
+      .footer-inner {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+      }
+      .footer-links { justify-content: flex-start; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Terms of Service</h1>
-    <p class="last-updated">Last updated: February 15, 2026</p>
 
-    <h2>1. Acceptance of Terms</h2>
-    <p>By downloading, installing, or using Annoyify ("the App"), you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
+  <header role="banner">
+    <nav aria-label="Primary navigation">
+      <a href="/" class="nav-logo" aria-label="Annoyify home">
+        <img src="/images/app-icon.png" alt="" width="32" height="32" aria-hidden="true">
+        Annoyify
+      </a>
+      <ul class="nav-links" role="list">
+        <li><a href="/#how-it-works" class="nav-link">How It Works</a></li>
+        <li><a href="/#features" class="nav-link">Features</a></li>
+        <li>
+          <a href="https://play.google.com/store/apps/details?id=com.heifi.annoyify"
+             class="nav-link nav-cta"
+             target="_blank"
+             rel="noopener noreferrer"
+             aria-label="Get Annoyify on Google Play">
+            Get the App
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </header>
 
-    <h2>2. Description of Service</h2>
-    <p>Annoyify is a habit-breaking application that sends push notifications designed to help you overcome unwanted habits. The frequency and content of notifications are based on your selected habits and annoyance level preferences.</p>
+  <main>
+    <div class="legal-wrap">
+      <p class="legal-eyebrow">Legal</p>
+      <h1>Terms of Service</h1>
+      <span class="last-updated">Last updated: February 15, 2026</span>
 
-    <h2>3. Account Registration</h2>
-    <p>You must create an account to use the App. You are responsible for maintaining the confidentiality of your account credentials. You agree to provide accurate information during registration.</p>
+      <h2>1. Acceptance of Terms</h2>
+      <p>By downloading, installing, or using Annoyify ("the App"), you agree to be bound by these Terms of Service. If you do not agree, do not use the App.</p>
 
-    <h2>4. Push Notifications</h2>
-    <p>The core feature of Annoyify is sending frequent push notifications. By using the App and enabling notifications, you consent to receiving these notifications. You can control the frequency through the annoyance level setting and set quiet hours to pause notifications during specific times. You can also disable notifications through your device settings at any time.</p>
+      <h2>2. Description of Service</h2>
+      <p>Annoyify is a habit-breaking application that sends push notifications designed to help you overcome unwanted habits. The frequency and content of notifications are based on your selected habits and annoyance level preferences.</p>
 
-    <h2>5. Content</h2>
-    <p>The App provides articles and notification content for informational and motivational purposes only. This content does not constitute medical, psychological, or professional advice. Always consult a qualified professional for health-related decisions.</p>
+      <h2>3. Account Registration</h2>
+      <p>You must create an account to use the App. You are responsible for maintaining the confidentiality of your account credentials. You agree to provide accurate information during registration.</p>
 
-    <h2>6. Affiliate Content</h2>
-    <p>The App may display affiliate product recommendations within articles. We are not responsible for the content or accuracy of third-party affiliate products.</p>
+      <h2>4. Push Notifications</h2>
+      <p>The core feature of Annoyify is sending frequent push notifications. By using the App and enabling notifications, you consent to receiving these notifications. You can control the frequency through the annoyance level setting and set quiet hours to pause notifications during specific times. You can also disable notifications through your device settings at any time.</p>
 
-    <h2>7. User Conduct</h2>
-    <p>You agree not to:</p>
-    <ul>
+      <h2>5. Content</h2>
+      <p>The App provides articles and notification content for informational and motivational purposes only. This content does not constitute medical, psychological, or professional advice. Always consult a qualified professional for health-related decisions.</p>
+
+      <h2>6. Affiliate Content</h2>
+      <p>The App may display affiliate product recommendations within articles. We are not responsible for the content or accuracy of third-party affiliate products.</p>
+
+      <h2>7. User Conduct</h2>
+      <p>You agree not to:</p>
+      <ul>
         <li>Use the App for any unlawful purpose</li>
         <li>Attempt to gain unauthorized access to our systems</li>
         <li>Interfere with or disrupt the App's functionality</li>
         <li>Reverse engineer or decompile the App</li>
-    </ul>
+      </ul>
 
-    <h2>8. Account Deletion</h2>
-    <p>You may delete your account at any time through the App's Settings screen. Upon deletion, all your personal data, habits, notification history, and preferences will be permanently removed from our systems.</p>
+      <h2>8. Account Deletion</h2>
+      <p>You may delete your account at any time through the App's Settings screen. Upon deletion, all your personal data, habits, notification history, and preferences will be permanently removed from our systems.</p>
 
-    <h2>9. Disclaimer of Warranties</h2>
-    <p>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will help you break any specific habit. Results vary by individual.</p>
+      <h2>9. Disclaimer of Warranties</h2>
+      <p>The App is provided "as is" without warranties of any kind. We do not guarantee that the App will help you break any specific habit. Results vary by individual.</p>
 
-    <h2>10. Limitation of Liability</h2>
-    <p>To the maximum extent permitted by law, Annoyify shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
+      <h2>10. Limitation of Liability</h2>
+      <p>To the maximum extent permitted by law, Annoyify shall not be liable for any indirect, incidental, or consequential damages arising from your use of the App.</p>
 
-    <h2>11. Changes to Terms</h2>
-    <p>We reserve the right to modify these Terms at any time. Continued use of the App after changes constitutes acceptance of the new Terms.</p>
+      <h2>11. Changes to Terms</h2>
+      <p>We reserve the right to modify these Terms at any time. Continued use of the App after changes constitutes acceptance of the new Terms.</p>
 
-    <h2>12. Contact</h2>
-    <p>For questions about these Terms, contact us at:</p>
-    <p>Email: <a href="mailto:info@annoyify.com">info@annoyify.com</a></p>
+      <h2>12. Contact</h2>
+      <p>For questions about these Terms, contact us at:</p>
+      <p>Email: <a href="mailto:info@annoyify.com">info@annoyify.com</a></p>
+    </div>
+  </main>
+
+  <footer role="contentinfo">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <img src="/images/app-icon.png" alt="" width="24" height="24" aria-hidden="true">
+        Annoyify
+      </div>
+      <nav class="footer-links" aria-label="Footer navigation">
+        <a href="/legal/privacy-policy.html">Privacy Policy</a>
+        <a href="/legal/terms-of-service.html">Terms of Service</a>
+        <a href="mailto:info@annoyify.com">Contact</a>
+      </nav>
+      <p class="footer-copy">
+        <small>&copy; 2026 Annoyify. All rights reserved.</small>
+      </p>
+    </div>
+  </footer>
+
 </body>
 </html>
