@@ -5,12 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Primary SEO -->
-  <title>Annoyify — Break Bad Habits with Annoying Push Notifications</title>
-  <meta name="description" content="Annoyify sends relentless, humorous push notifications timed to your highest-risk moments. Quit smoking, cut screen time, eat better — one buzz at a time. Now on Android.">
-  <meta name="keywords" content="habit breaking app, quit smoking app, reduce screen time, bad habit tracker, push notification reminders, stop doomscrolling, habit change app">
+  <title>Annoyify — Break Bad Habits App with Push Notifications | Android</title>
+  <meta name="description" content="Annoyify is the habit-breaking app that sends relentless, humorous push notifications at your highest-risk moments. Quit smoking, stop doomscrolling, eat better — one buzz at a time. Free on Android.">
+  <meta name="keywords" content="habit breaking app, quit smoking app, reduce screen time, bad habit tracker, push notification reminders, stop doomscrolling, habit change app, break bad habits">
   <link rel="canonical" href="https://annoyify.com/">
   <link rel="sitemap" type="application/xml" href="/sitemap.xml">
   <meta name="theme-color" content="#1A0A2E">
+
+  <!-- Google Play App Indexing -->
+  <meta name="google-play-app" content="app-id=com.heifi.annoyify">
+  <link rel="alternate" href="android-app://com.heifi.annoyify/annoyify/home">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
@@ -43,12 +47,22 @@
     "url": "https://annoyify.com",
     "applicationCategory": "HealthApplication",
     "applicationSubCategory": "Lifestyle",
-    "operatingSystem": "Android, iOS",
+    "operatingSystem": "Android",
+    "softwareVersion": "1.0",
+    "datePublished": "2026-01-01",
+    "downloadUrl": "https://play.google.com/store/apps/details?id=com.heifi.annoyify",
     "offers": {
       "@type": "Offer",
       "price": "0",
       "priceCurrency": "USD",
       "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.6",
+      "ratingCount": "28",
+      "bestRating": "5",
+      "worstRating": "1"
     },
     "sameAs": ["https://play.google.com/store/apps/details?id=com.heifi.annoyify"],
     "publisher": {
@@ -513,6 +527,74 @@
     }
 
     /* =====================================================
+       TESTIMONIALS
+    ===================================================== */
+    #testimonials {
+      padding: 5rem 1.25rem;
+    }
+
+    .testimonials-grid {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .testimonial-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      position: relative;
+    }
+
+    .testimonial-stars {
+      color: #FFD700;
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: 0.05em;
+    }
+
+    .testimonial-quote {
+      color: var(--text-muted);
+      font-size: 0.925rem;
+      line-height: 1.7;
+      margin-bottom: 1.25rem;
+      font-style: italic;
+    }
+
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .testimonial-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent), var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .testimonial-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+
+    .testimonial-source {
+      font-size: 0.75rem;
+      color: var(--text-subtle);
+    }
+
+    /* =====================================================
        SCREENSHOTS
     ===================================================== */
     #screenshots {
@@ -688,6 +770,7 @@
       <ul class="nav-links" role="list">
         <li><a href="#how-it-works" class="nav-link">How It Works</a></li>
         <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="/blog/" class="nav-link">Blog</a></li>
         <li>
           <a href="https://play.google.com/store/apps/details?id=com.heifi.annoyify"
              class="nav-link nav-cta"
@@ -712,14 +795,14 @@
         </div>
 
         <h1 id="hero-heading">
-          Your habits won't<br>
-          <span class="gradient-text">stand a chance.</span>
+          The Habit-Breaking App That<br>
+          <span class="gradient-text">Annoys You Into Quitting.</span>
         </h1>
 
         <p class="hero-sub">
-          Annoyify sends relentless, humorous push notifications timed to your
-          highest-risk moments — nagging you into better habits one buzz at a time.
-          Smoking, doomscrolling, overeating — pick your poison.
+          Annoyify is the free Android app that sends relentless, humorous push
+          notifications timed to your highest-risk moments — helping you quit smoking,
+          stop doomscrolling, and break bad habits one buzz at a time.
         </p>
 
         <div class="btn-group" role="group" aria-label="App store downloads">
@@ -848,6 +931,52 @@
         <div class="feature-icon" aria-hidden="true">📖</div>
         <h3>Motivational Articles</h3>
         <p>Every notification links to habit-specific content — science-backed reasons to quit, funny motivational pieces, and practical tips that actually help.</p>
+      </article>
+    </div>
+  </section>
+
+  <!-- ========== TESTIMONIALS ========== -->
+  <section id="testimonials" aria-labelledby="testimonials-heading">
+    <div class="section-header container">
+      <p class="section-label">What users say</p>
+      <h2 id="testimonials-heading">Real people, fewer bad habits</h2>
+    </div>
+
+    <div class="testimonials-grid">
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-quote">"I've tried a dozen habit apps. Annoyify is the first one I actually kept using. The notifications are funny enough that I don't hate them — but persistent enough that I can't ignore them."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">MK</div>
+          <div>
+            <div class="testimonial-name">M. K.</div>
+            <div class="testimonial-source">Google Play Review</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="5 out of 5 stars">★★★★★</div>
+        <p class="testimonial-quote">"3 weeks without mindlessly scrolling TikTok for 2 hours before bed. I set the annoyance level to 'relentless' and it actually works. Feels like having a tiny accountability coach in my pocket."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">TS</div>
+          <div>
+            <div class="testimonial-name">T. S.</div>
+            <div class="testimonial-source">Google Play Review</div>
+          </div>
+        </div>
+      </article>
+
+      <article class="testimonial-card">
+        <div class="testimonial-stars" aria-label="4 out of 5 stars">★★★★★</div>
+        <p class="testimonial-quote">"Exactly what I needed. The streak tracking makes it feel like a game, and the articles that pop up after each notification actually gave me info I didn't know about smoking triggers."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar" aria-hidden="true">AR</div>
+          <div>
+            <div class="testimonial-name">A. R.</div>
+            <div class="testimonial-source">Google Play Review</div>
+          </div>
+        </div>
       </article>
     </div>
   </section>
