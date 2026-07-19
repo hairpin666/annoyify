@@ -1,34 +1,113 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://annoyify.com/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/"/>
+  </url>
+  <url>
+    <loc>https://annoyify.com/de/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/"/>
   </url>
   <url>
     <loc>https://annoyify.com/blog/</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/"/>
+  </url>
+  <url>
+    <loc>https://annoyify.com/de/blog/</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/"/>
   </url>
   <url>
     <loc>https://annoyify.com/blog/how-to-stop-doomscrolling.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/how-to-stop-doomscrolling.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/doomscrolling-stoppen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/how-to-stop-doomscrolling.html"/>
+  </url>
+  <url>
+    <loc>https://annoyify.com/de/blog/doomscrolling-stoppen.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/how-to-stop-doomscrolling.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/doomscrolling-stoppen.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/how-to-stop-doomscrolling.html"/>
   </url>
   <url>
     <loc>https://annoyify.com/blog/how-to-quit-smoking.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/how-to-quit-smoking.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/rauchen-aufhoeren.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/how-to-quit-smoking.html"/>
+  </url>
+  <url>
+    <loc>https://annoyify.com/de/blog/rauchen-aufhoeren.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/how-to-quit-smoking.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/rauchen-aufhoeren.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/how-to-quit-smoking.html"/>
+  </url>
+  <url>
+    <loc>https://annoyify.com/blog/how-to-drink-less-alcohol.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/how-to-drink-less-alcohol.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/weniger-alkohol-trinken.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/how-to-drink-less-alcohol.html"/>
+  </url>
+  <url>
+    <loc>https://annoyify.com/de/blog/weniger-alkohol-trinken.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/how-to-drink-less-alcohol.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/weniger-alkohol-trinken.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/how-to-drink-less-alcohol.html"/>
   </url>
   <url>
     <loc>https://annoyify.com/blog/how-to-break-bad-habits.html</loc>
-    <lastmod>2026-06-29</lastmod>
+    <lastmod>2026-07-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/how-to-break-bad-habits.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/schlechte-gewohnheiten-loswerden.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/how-to-break-bad-habits.html"/>
+  </url>
+  <url>
+    <loc>https://annoyify.com/de/blog/schlechte-gewohnheiten-loswerden.html</loc>
+    <lastmod>2026-07-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://annoyify.com/blog/how-to-break-bad-habits.html"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://annoyify.com/de/blog/schlechte-gewohnheiten-loswerden.html"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://annoyify.com/blog/how-to-break-bad-habits.html"/>
   </url>
   <url>
     <loc>https://annoyify.com/legal/privacy-policy.html</loc>
